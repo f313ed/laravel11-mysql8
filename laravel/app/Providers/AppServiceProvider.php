@@ -6,10 +6,17 @@ use Illuminate\Support\ServiceProvider;
 use App\Providers\ApplicationServiceProvider;
 use App\Providers\DomainServiceProvider;
 
+/**
+ * アプリケーションサービスプロバイダー
+ *
+ * ApplicationServiceProviderとDomainServiceProviderを登録する
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * アプリケーションサービスの登録
+     *
+     * @return void
      */
     public function register(): void
     {
@@ -18,7 +25,9 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * アプリケーションサービスの起動
+     *
+     * @return void
      */
     public function boot(): void
     {

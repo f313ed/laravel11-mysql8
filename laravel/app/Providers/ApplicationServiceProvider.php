@@ -4,8 +4,18 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * アプリケーション層のサービスプロバイダー
+ *
+ * GetStaffListUseCaseの依存関係を解決する
+ */
 class ApplicationServiceProvider extends ServiceProvider
 {
+    /**
+     * アプリケーション層のサービスの登録
+     *
+     * @return void
+     */
     public function register()
     {
         $this->app->bind(
@@ -18,6 +28,11 @@ class ApplicationServiceProvider extends ServiceProvider
         );
     }
 
+    /**
+     * アプリケーション層のサービスの起動
+     *
+     * @return void
+     */
     public function boot()
     {
         //
