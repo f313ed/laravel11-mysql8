@@ -2,31 +2,30 @@
 
 namespace App\Domain\Staff;
 
-use App\Domain\Staff\Entities\StaffListEntity;
-use App\Domain\Staff\Repositories\StaffRepositoryInterface;
+use App\Application\StaffList\StaffListService;
 use Illuminate\Support\Collection;
 
 /**
  * スタッフに関するビジネスロジックを集約したファサードクラス
  *
  * アプリケーション層からドメイン層へのアクセスポイントとなる
- * StaffListEntityを使ってスタッフ一覧を取得する
+ * StaffListServiceを使ってスタッフ一覧を取得する
  */
 class StaffFacade
 {
     /**
-     * @var StaffRepositoryInterface
+     * @var StaffListService
      */
-    private $staffRepository;
+    private $staffListService;
 
     /**
      * コンストラクタ
      *
-     * @param StaffRepositoryInterface $staffRepository
+     * @param StaffListService $staffListService
      */
-    public function __construct(StaffRepositoryInterface $staffRepository)
+    public function __construct(StaffListService $staffListService)
     {
-        $this->staffRepository = $staffRepository;
+        $this->staffListService = $staffListService;
     }
 
     /**
@@ -34,9 +33,8 @@ class StaffFacade
      *
      * @return Collection スタッフエンティティのコレクション
      */
-    public function getStaffList(): Collection
+    public function getAll(): Collection
     {
-        $staffListEntity = new StaffListEntity($this->staffRepository);
-        return $staffListEntity->getStaffList();
+        return $this->staffListService->getAll();
     }
 }

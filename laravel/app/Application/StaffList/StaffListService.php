@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Domain\Staff\Entities;
+namespace App\Application\StaffList;
 
 use App\Domain\Staff\Entities\StaffEntity;
 use App\Domain\Staff\Repositories\StaffRepositoryInterface;
 use Illuminate\Support\Collection;
 
 /**
- * スタッフ一覧のエンティティクラス
+ * スタッフ一覧のサービスクラス
  *
  * StaffRepositoryから取得したスタッフデータをStaffEntityに変換する責務を持つ
- * ビジネスロジックは含まない
  */
-class StaffListEntity
+class StaffListService
 {
     /**
      * @var StaffRepositoryInterface
@@ -34,7 +33,7 @@ class StaffListEntity
      *
      * @return Collection スタッフエンティティのコレクション
      */
-    public function getStaffList(): Collection
+    public function getAll(): Collection
     {
         $staffData = $this->staffRepository->getStaffList();
 

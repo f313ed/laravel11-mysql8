@@ -20,7 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->register(ApplicationServiceProvider::class);
         $this->app->register(DomainServiceProvider::class);
     }
 

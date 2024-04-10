@@ -35,6 +35,6 @@ class GetStaffListUseCase
      */
     public function execute(): Collection
     {
-        return $this->staffFacade->getStaffList();
+        return $this->staffFacade->getAll();
     }
 }
