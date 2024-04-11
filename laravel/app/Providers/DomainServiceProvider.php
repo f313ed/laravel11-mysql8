@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Domain\Staff\Repositories\StaffRepositoryInterface;
-use App\Infrastructure\Repositories\StaffRepository;
+use App\Domain\Staff\Repositories\StaffRepository;
 
 /**
  * ドメイン層のサービスプロバイダー
